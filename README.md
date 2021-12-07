@@ -3,6 +3,9 @@ A* Mapping and path planning using flood fill algorithms and go-around code. Tur
 Final for rob456, fall term 2021
 
 Notes for git on command line:
+
 git add --all
+
 git commit -m "Push message"
+
 git push -u origin main
