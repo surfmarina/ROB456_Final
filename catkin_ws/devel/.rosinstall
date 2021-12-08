@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ubuntu/ROB456_Final/catkin_ws/devel/setup.sh
