@@ -1,2 +1,0 @@
-
--DCATKIN_DEVEL_PREFIX=/home/ubuntu/ROB456_Final/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/ROB456_Final/install -G Unix Makefiles
