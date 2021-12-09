@@ -17,6 +17,8 @@ def draw_points(points, pub):
     msg.header.stamp = rospy.Time.now()
     # uint8 POINTS=8
     msg.type = 8
+    # Action, Create/Update
+    msg.action = 0
     # Disappear after 1sec. Comment this line out to make them persist indefinitely
     msg.lifetime = rospy.rostime.Duration(1, 0)
     # Set marker visual properties
