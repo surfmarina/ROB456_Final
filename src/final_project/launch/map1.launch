@@ -3,6 +3,8 @@
 	<include file="$(find turtlebot3_slam)/launch/turtlebot3_gmapping.launch"/>
 	<node pkg="tf" type="static_transform_publisher" name="base_scan_tf" args="0 0 0 0 0 0 base_footprint base_scan 100"/>
 
+	<include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch"/>
+
 	<node pkg="final_project" type="go_around_2.py" name="go_around_2" output="screen"/>
 </launch>
 
