@@ -16,6 +16,4 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
   
-  <!-- Bringing In RVIS for RVIS stuff -->
-  <node pkg="rviz" type="rviz" name="rviz"/>
 </launch>
