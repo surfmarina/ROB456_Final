@@ -5,6 +5,7 @@
 
 	<include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch"/>
 
+	<node pkg="final_project" type="points_to_rviz.py" name="points_to_rviz" output="screen"/>
 	<node pkg="final_project" type="go_around_2.py" name="go_around_2" output="screen"/>
 </launch>
 
