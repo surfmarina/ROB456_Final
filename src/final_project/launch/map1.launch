@@ -1,7 +1,5 @@
 <launch>
-		<env name="TURTLEBOT3_MODEL" value="burger"/>
 	<include file="$(find final_project)/launch/maze_closed.launch"/>
-	<include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch"/>
 	<include file="$(find turtlebot3_slam)/launch/turtlebot3_gmapping.launch"/>
 	<node pkg="tf" type="static_transform_publisher" name="base_scan_tf" args="0 0 0 0 0 0 base_footprint base_scan 100"/>
 
