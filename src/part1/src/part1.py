@@ -37,7 +37,9 @@ if __name__ == '__main__':
     pub = rospy.Publisher('/marker', Marker, queue_size=2)
     rospy.init_node('rviz_demo')
     rate = rospy.Rate(10)
+    print "### INIT PASSED ###"
 
     while not rospy.is_shutdown():
         draw_points([(1, 2), (2, 3), (3, 4)], pub)
         rate.sleep()
+        print "### WHILE PASSED ###"
