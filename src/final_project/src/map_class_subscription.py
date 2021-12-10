@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 import rospy
-from nav_msgs.msg import OccupancyGrid, Odometry
+from nav_msgs.msg import OccupancyGrid, Odometry, MapMetaData
 from std_msgs.msg import Bool
+
+import numpy as np
 
 class GlobalPlannar(object):
     def __init__(self):
@@ -12,8 +14,13 @@ class GlobalPlannar(object):
         self.pub = rospy.Publisher('/recieved_map', Bool, queue_size=10)
 
     def map_callback(self, msg):
-        rospy.loginfo('In map callback', msg.info.width, msg.info.height)
+        rospy.loginfo('In map callback')
+
         self.map_data = msg.data
+
+        data = np.asarray(msg.data, dtype=np.int8).reshape(msg.info.height, msg.info.width)
+        rospy.loginfo(np.shape(data))
+
         self.pub.publish(True)
 
     def odom_callback(self, msg):
