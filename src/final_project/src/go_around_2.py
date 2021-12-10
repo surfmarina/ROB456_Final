@@ -80,26 +80,26 @@ def lidar_callback(scan_msg):
         objForward = False
 
         if (i == 359):
-            forwardDistance[0] = float(distances[59]) # 45 deg left
-            if (forwardDistance[0] < 0.25): # object .25m ahead on far left 0.35
+            forwardDistance[0] = float(distances[89]) # 45 deg left
+            if (forwardDistance[0] < 0.25+0.05): # object .25m ahead on far left 0.35
                 objSideLeft = True
             forwardDistance[1] = float(distances[44]) # 45 deg left
-            if (forwardDistance[1] < 0.35): # object .25m ahead on far left 0.35
+            if (forwardDistance[1] < 0.35+0.05): # object .25m ahead on far left 0.35
                 objWayLeft = True
             forwardDistance[2] = float(distances[21]) # 22 deg left
-            if (forwardDistance[2] < 0.27): # object .25m ahead on left 0.27
+            if (forwardDistance[2] < 0.27+0.05): # object .25m ahead on left 0.27
                 objLeft = True
             forwardDistance[3] = float(distances[0]) # Straight ahead
-            if (forwardDistance[3] < 0.30): # object .25m ahead in center 0.25
+            if (forwardDistance[3] < 0.30+0.05): # object .25m ahead in center 0.25
                 objForward = True
             forwardDistance[4] = float(distances[359-23]) # 22 deg right
-            if (forwardDistance[4] < 0.27): # object .25m ahead on right 0.27
+            if (forwardDistance[4] < 0.27+0.05): # object .25m ahead on right 0.27
                 objRight = True
             forwardDistance[5] = float(distances[359-45]) # 45 deg right
-            if (forwardDistance[5] < 0.35): # object .25m ahead on far right 0.35
+            if (forwardDistance[5] < 0.35+0.05): # object .25m ahead on far right 0.35
                 objWayRight = True
-            forwardDistance[6] = float(distances[359-60]) # 45 deg right
-            if (forwardDistance[6] < 0.25): # object .25m ahead on far right 0.35
+            forwardDistance[6] = float(distances[359-90]) # 45 deg right
+            if (forwardDistance[6] < 0.25+0.05): # object .25m ahead on far right 0.35
                 objSideRight = True
 
             if (forwardDistance[3] > forwardDistance[1]):
