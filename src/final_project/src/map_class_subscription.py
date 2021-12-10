@@ -19,7 +19,7 @@ class GlobalPlannar(object):
         self.map_data = msg.data
 
         data = np.asarray(msg.data, dtype=np.int8).reshape(msg.info.height, msg.info.width)
-        rospy.loginfo(np.shape(data))
+        rospy.loginfo(data)
 
         self.pub.publish(True)
 
