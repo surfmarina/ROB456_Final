@@ -21,7 +21,7 @@ class PoseListener(object):
             pose = PoseStamped(h, Pose(Point(0,0,0), Quaternion(0,0,0,1)))
             
             new_pose = self.tf_buffer.transform(pose, 'map', rospy.Duration(1.0))
-            rospy.loginfo('In map_odom callback' + str(new_pose))
+            rospy.loginfo('In map_odom callback' + str(new_pose.pose))
             self.pose_pub.publish(new_pose.pose)
 
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
