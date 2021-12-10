@@ -27,7 +27,7 @@ class GlobalPlannar(object):
 
         # a* begin, move to seperate node
 
-        rospy.loginfo("Cell Position:" + str(self.map_odom_pos.position.x) + str(self.map_odom_pos.position.x))
+        rospy.loginfo("Cell Position: (" + str(self.map_odom_pos.position.x / msg.info.resolution) + "," +str(self.map_odom_pos.position.y / msg.info.resolution) + ")")
 
         a = aS.aStar([100, 100], [250, 325], img=data)
 
