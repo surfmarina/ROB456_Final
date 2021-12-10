@@ -15,7 +15,7 @@ class floodFill:
 
   def __init__( self, img, startLoc, endLoc = [Inf, Inf],
                 e = lambda p0, p1, p2: p0.is_empty(), 
-                w = lambda p1, p2: p1[1]+1) -> None:
+                w = lambda p1, p2: p1[1]+1):
     # Priority Queue for flood, initially empty
     self.pq   = pq.PriorityQueue()
 

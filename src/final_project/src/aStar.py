@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import cProfile as cP
 
 class aStar:
-  def __init__(self, start, goal, img, h = lambda p1, p2: np.linalg.norm(p2-p1[0])+p1[1]) -> None:
+  def __init__(self, start, goal, img, h = lambda p1, p2: np.linalg.norm(p2-p1[0])+p1[1]):
     self.start  = start
     self.goal   = goal
     # Everything happens inside floodfill, the two lambda functions are passed in and modify the behavior turning it into floodfill
@@ -50,7 +50,7 @@ class aStar:
       # Syntactically identical to path.push pc, I just like how this look instead (spread/splat opperator)
       # *path is replaced with every item in path, so it essentially 
       # sets path to a new array containing everything in path plus the new element
-      path = [*path, pc]
+      path.append(pc)
       # Update current point to the selected point to continue itterating
       pc = pn
   
