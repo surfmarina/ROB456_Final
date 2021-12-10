@@ -12,12 +12,12 @@ class GlobalPlannar(object):
         self.pub = rospy.Publisher('/recieved_map', Bool, queue_size=10)
 
     def map_callback(self, msg):
-        rospy.loginfo('In map callback')
+        rospy.loginfo('In map callback', str(msg.info))
         self.map_data = msg.data
         self.pub.publish(True)
 
     def odom_callback(self, msg):
-        rospy.loginfo('In odom callback' + str(self.odom_pos))
+        # rospy.loginfo('In odom callback' + str(self.odom_pos))
         self.odom_pos = msg.pose.pose
 
 if __name__ == '__main__':
