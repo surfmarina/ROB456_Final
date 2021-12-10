@@ -38,7 +38,7 @@ class GlobalPlannar(object):
 
     def odom_callback(self, msg):
         self.odom_pos = msg
-        rospy.loginfo('In odom callback' + self.odom_pos)
+        rospy.loginfo('In odom callback' + str(self.odom_pos))
 
 if __name__ == '__main__':
     rospy.init_node('class_example')
