@@ -13,7 +13,7 @@ import numpy as np
 class GlobalPlannar(object):
     def __init__(self):
         self.map_data = None
-        self.odom_pos = None
+        self.map_odom_pos = None
         self.map_sub = rospy.Subscriber('/map', OccupancyGrid, self.map_callback)
         self.odom_sub = rospy.Subscriber('/map_odom', Pose, self.odom_callback)
         self.pub = rospy.Publisher('/recieved_map', Bool, queue_size=10)
@@ -27,6 +27,8 @@ class GlobalPlannar(object):
 
         # a* begin, move to seperate node
 
+        rospy.loginfo("Cell Position:" + str(self.map_odom_pos.x) + str(self.map_odom_pos.x))
+
         a = aS.aStar([100, 100], [250, 325], img=data)
 
         # aPath = a.path(a.run())
@@ -37,8 +39,8 @@ class GlobalPlannar(object):
         self.pub.publish(True)
 
     def odom_callback(self, msg):
-        self.odom_pos = msg
-        rospy.loginfo('In odom callback' + str(self.odom_pos))
+        self.map_odom_pos = msg
+        # rospy.loginfo('In odom callback' + str(self.map_odom_pos))
 
 if __name__ == '__main__':
     rospy.init_node('class_example')
