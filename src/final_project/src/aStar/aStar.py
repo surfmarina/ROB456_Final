@@ -11,11 +11,11 @@ import matplotlib.pyplot as plt
 import cProfile as cP
 
 class aStar:
-  def __init__(self, start, goal, h = lambda p1, p2: np.linalg.norm(p2-p1[0])+p1[1]) -> None:
+  def __init__(self, start, goal, img = mpimg.imread('./src/final_project/src/aStar/BRADYCHR.pgm'), h = lambda p1, p2: np.linalg.norm(p2-p1[0])+p1[1]) -> None:
     self.start  = start
     self.goal   = goal
     # Everything happens inside floodfill, the two lambda functions are passed in and modify the behavior turning it into floodfill
-    self.ff = ff.floodFill(startLoc = start, endLoc = goal, e = lambda p0, p1, p2: np.array_equal(p1, p2), w = h)
+    self.ff = ff.floodFill(startLoc = start, endLoc = goal, img=img, e = lambda p0, p1, p2: np.array_equal(p1, p2), w = h)
 
   # This is a bad implementation. It works, but it's _really_ bad
   def path(self, out):

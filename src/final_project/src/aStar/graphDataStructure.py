@@ -12,7 +12,7 @@ from numpy.core.numeric import Inf
 class graphDataStructure:
 
   
-  def __init__(self, img = mpimg.imread('BRADYCHR.pgm'), unexplored = 205, occupied = 0, unoccupied = 254):
+  def __init__(self, img = mpimg.imread('./src/final_project/src/aStar/BRADYCHR.pgm'), unexplored = 205, occupied = 0, unoccupied = 254):
 
     
     self.img = img
