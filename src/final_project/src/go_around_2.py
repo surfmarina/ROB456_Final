@@ -40,7 +40,7 @@ def lidar_callback(scan_msg):
     distances = scan_msg.ranges
     numScans = len(distances)
 
-#    print ODOM
+#    # print ODOM
     # Problem 1: move the robot toward the goal
 
     # ODOM = (x, y, yaw)
@@ -61,8 +61,8 @@ def lidar_callback(scan_msg):
 #    goal_distance = pow((pow(move_x, 2) + pow(move_y, 2)), 0.5)
     if ((abs(move_x) < 0.15) and (abs(move_y) < 0.15)):
         command.linear.x = 0
-#    print(cur_x, cur_y, cur_yaw, move_x, move_y, move_heading)
-    print(move_x, move_y, move_heading)
+#    # print(cur_x, cur_y, cur_yaw, move_x, move_y, move_heading)
+    # print(move_x, move_y, move_heading)
     # End problem 1
 
     currentLaserTheta = minAngle
@@ -106,7 +106,7 @@ def lidar_callback(scan_msg):
                 turnRight = False
             else:
                 turnRight = True
-            print(objSideLeft, objWayLeft, objLeft, objForward, objRight, objWayRight, objSideRight)
+            # print(objSideLeft, objWayLeft, objLeft, objForward, objRight, objWayRight, objSideRight)
             modLinearX = command.linear.x
             modAngularZ = command.angular.z
 
@@ -117,39 +117,39 @@ def lidar_callback(scan_msg):
                 if command.linear.x > 0:
                     modLinearX = 0.05
                 modAngularZ = modAngularZ - 1.57
-                print("Turning sharp right")
+                # print("Turning sharp right")
             elif objWayLeft and objLeft: # Turn right
                 if command.linear.x > 0:
                     modLinearX = 0.05
                 modAngularZ = modAngularZ - 1.57
-                print("Turning right")
+                # print("Turning right")
             elif objWayLeft: # Turn right
                 if command.linear.x > 0:
                     modLinearX = 0.1
                 modAngularZ = modAngularZ - 1
-                print("Turning small right")
+                # print("Turning small right")
             elif objForward and not turnRight: # Turn left
                 if command.linear.x > 0:
                     modLinearX = 0.05
                 modAngularZ = modAngularZ + 1.57
-                print("Turning sharp left")
+                # print("Turning sharp left")
             elif objWayRight and objRight: # Turn left
                 if command.linear.x > 0:
                     modLinearX = 0.1
                 modAngularZ = modAngularZ + 1.57
-                print("Turning left")
+                # print("Turning left")
             elif objWayRight: # Turn left
                 if command.linear.x > 0:
                     modLinearX = 0.15
                 modAngularZ = modAngularZ + 1
-                print("Turning small left")
+                # print("Turning small left")
             
             if objSideLeft:
                 modAngularZ = modAngularZ - 1
             if objSideRight:
                 modAngularZ = modAngularZ + 1
 
-            print(modLinearX, modAngularZ)
+            # print(modLinearX, modAngularZ)
             command.linear.x = modLinearX
             command.angular.z = modAngularZ
 
