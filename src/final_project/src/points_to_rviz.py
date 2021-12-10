@@ -42,5 +42,5 @@ if __name__ == '__main__':
     rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
-        draw_points([(1, 2), (2, 3), (3, 4)], pub)
+        # draw_points([(1, 2), (2, 3), (3, 4)], pub)
         rate.sleep()
