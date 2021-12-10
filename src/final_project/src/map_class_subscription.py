@@ -12,7 +12,7 @@ class GlobalPlannar(object):
         self.pub = rospy.Publisher('/recieved_map', Bool, queue_size=10)
 
     def map_callback(self, msg):
-        rospy.loginfo('In map callback', str(msg.info))
+        rospy.loginfo('In map callback', str(msg.info.width, msg.info.height))
         self.map_data = msg.data
         self.pub.publish(True)
 
