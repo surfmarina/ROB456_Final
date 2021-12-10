@@ -6,7 +6,7 @@ from std_msgs.msg import Bool
 from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point
 
-import aStar
+import aStar as aS
 
 import numpy as np
 
@@ -26,7 +26,7 @@ class GlobalPlannar(object):
 
         data = np.asarray(msg.data, dtype=np.int8).reshape(msg.info.height, msg.info.width)
 
-        a = aStar([100, 100], [250, 325], img=data)
+        a = aS.aStar([100, 100], [250, 325], img=data)
 
         # Astar goes here
 
