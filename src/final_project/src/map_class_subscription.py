@@ -12,8 +12,8 @@ import numpy as np
 
 class GlobalPlannar(object):
     def __init__(self):
-        self.map_data = None
-        self.map_odom_pos = None
+        self.map_data = OccupancyGrid()
+        self.map_odom_pos = Pose()
         self.map_sub = rospy.Subscriber('/map', OccupancyGrid, self.map_callback)
         self.odom_sub = rospy.Subscriber('/map_odom', Pose, self.odom_callback)
         self.pub = rospy.Publisher('/recieved_map', Bool, queue_size=10)
