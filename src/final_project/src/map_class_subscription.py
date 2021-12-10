@@ -27,6 +27,9 @@ class GlobalPlannar(object):
         data = np.asarray(msg.data, dtype=np.int8).reshape(msg.info.height, msg.info.width)
 
         a = aS.aStar([100, 100], [250, 325], img=data)
+        aPath = a.path(a.run())
+
+        rospy.loginfo(np.shape(aPath))
 
         # Astar goes here
 

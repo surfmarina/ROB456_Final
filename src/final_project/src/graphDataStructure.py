@@ -12,7 +12,7 @@ from numpy.core.numeric import Inf
 class graphDataStructure:
 
   
-  def __init__(self, img, unexplored = 205, occupied = 0, unoccupied = 254):
+  def __init__(self, img, unexplored = -1, occupied = 100, unoccupied = 0):
 
     
     self.img = img
