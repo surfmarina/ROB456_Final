@@ -4,5 +4,11 @@
 	<node pkg="tf" type="static_transform_publisher" name="base_scan_tf" args="0 0 0 0 0 0 base_footprint base_scan 100"/>
 
 	<node pkg="final_project" type="go_around_2.py" name="go_around_2" output="screen"/>
+
+	<node pkg="final_project" type="points_to_rviz.py" name="points_to_rviz" output="screen"/>
+	<node pkg="final_project" type="get_position_in_map.py" name="get_position_in_map" output="screen"/>
+	<node pkg="final_project" type="map_class_subscription.py" name="map_class_subscription" output="screen"/>
+
+	<node pkg="final_project" type="go_around_2.py" name="go_around_2" output="screen"/>
 </launch>
 
