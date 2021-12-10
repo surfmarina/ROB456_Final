@@ -4,7 +4,7 @@ from nav_msgs.msg import OccupancyGrid, Odometry, MapMetaData
 from std_msgs.msg import Bool
 
 from visualization_msgs.msg import Marker
-from geometry_msgs.msg import Point
+from geometry_msgs.msg import Pose
 
 import aStar as aS
 
@@ -15,9 +15,8 @@ class GlobalPlannar(object):
         self.map_data = None
         self.odom_pos = None
         self.map_sub = rospy.Subscriber('/map', OccupancyGrid, self.map_callback)
-        self.odom_sub = rospy.Subscriber('/odom', Odometry, self.odom_callback)
+        self.odom_sub = rospy.Subscriber('/map_odom', Pose, self.odom_callback)
         self.pub = rospy.Publisher('/recieved_map', Bool, queue_size=10)
-        self.mark_pub = rospy.Publisher('/marker', Marker, queue_size=2)
 
     def map_callback(self, msg):
         rospy.loginfo('In map callback')
@@ -38,8 +37,8 @@ class GlobalPlannar(object):
         self.pub.publish(True)
 
     def odom_callback(self, msg):
-        rospy.loginfo('In odom callback' + str(self.odom_pos))
-        self.odom_pos = msg.pose.pose
+        rospy.loginfo('In odom callback' + str(msg.odom_pos))
+        self.odom_pos = msg.pose
 
 if __name__ == '__main__':
     rospy.init_node('class_example')
