@@ -2,4 +2,4 @@ build/
 devel/
 *.pyc
 *.pgm
-*.SD_Store
+*.DS_Store
