@@ -22,7 +22,7 @@ class PoseListener(object):
             
             new_pose = self.tf_buffer.transform(pose, 'map', rospy.Duration(1.0))
             # rospy.loginfo('In map_odom callback' + str(new_pose.pose))
-            self.pose_pub.publish(new_pose.pose)
+            self.pose_pub.publish(new_pose)
 
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
             rospy.logwarn(e)
