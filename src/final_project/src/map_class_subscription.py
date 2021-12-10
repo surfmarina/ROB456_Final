@@ -37,7 +37,7 @@ class GlobalPlannar(object):
         self.pub.publish(True)
 
     def odom_callback(self, msg):
-        rospy.loginfo('In odom callback' + str(msg.odom_pos))
+        rospy.loginfo('In odom callback' + str(msg.pose))
         self.odom_pos = msg.pose
 
 if __name__ == '__main__':
