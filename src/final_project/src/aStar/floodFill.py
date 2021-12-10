@@ -13,8 +13,7 @@ import matplotlib.pyplot as plt
 # weighted by the weighting algorithm and normalized by the highest value to [0, 512] (the range of the imshow colorspace)
 class floodFill:
 
-  def __init__( self, startLoc, endLoc = [Inf, Inf],
-                img = mpimg.imread('./src/final_project/src/aStar/BRADYCHR.pgm'),
+  def __init__( self, img, startLoc, endLoc = [Inf, Inf],
                 e = lambda p0, p1, p2: p0.is_empty(), 
                 w = lambda p1, p2: p1[1]+1) -> None:
     # Priority Queue for flood, initially empty
