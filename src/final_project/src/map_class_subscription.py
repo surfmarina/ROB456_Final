@@ -4,7 +4,7 @@ from nav_msgs.msg import OccupancyGrid, Odometry, MapMetaData
 from std_msgs.msg import Bool
 
 from visualization_msgs.msg import Marker
-from geometry_msgs.msg import Pose
+from geometry_msgs.msg import Pose, Point
 
 import aStar as aS
 
@@ -27,7 +27,7 @@ class GlobalPlannar(object):
 
         # a* begin, move to seperate node
 
-        rospy.loginfo("Cell Position:" + str(self.map_odom_pos.x) + str(self.map_odom_pos.x))
+        rospy.loginfo("Cell Position:" + str(self.map_odom_pos.position.x) + str(self.map_odom_pos.position.x))
 
         a = aS.aStar([100, 100], [250, 325], img=data)
 
